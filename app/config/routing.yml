@@ -1,3 +1,2 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+myjobdating_core:
+    resource: "@MyJobDatingCoreBundle/Resources/config/routing.yml"
