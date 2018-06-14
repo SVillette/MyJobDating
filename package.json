@@ -1,0 +1,38 @@
+{
+  "name": "MyJobDating",
+  "version": "1.0.0",
+  "main": "app/Resources/assets/js/app.js",
+  "repository": "https://github.com/Samadu61/CoOperation.git",
+  "author": "Samaël <villette.samael@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf web/dist web/fonts/vendor web/images web/icons",
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "prod": "npm run production",
+    "production": "npm run clean && cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.1.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "cross-env": "^5.1.4",
+    "css-loader": "^0.28.10",
+    "file-loader": "^1.1.11",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.1",
+    "resolve-url-loader": "^2.3.0",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "webpack": "~3.11.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.1",
+    "rimraf": "^2.6.2"
+  }
+}
