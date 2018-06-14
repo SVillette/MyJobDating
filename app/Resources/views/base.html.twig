@@ -5,9 +5,16 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+
         {% block javascripts %}{% endblock %}
+        <script defer src="{{ asset('js/vendor.js') }}"></script>
+        <script defer src="{{ asset('js/app.js') }}"></script>
+        <script defer src="{{ asset('js/plugins.js') }}"></script>
     </body>
 </html>

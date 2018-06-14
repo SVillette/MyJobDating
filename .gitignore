@@ -49,3 +49,12 @@
 
 # .idea folder
 /.idea/
+
+# node_modules folder
+/node_modules/
+
+# web assets folder
+/web/css/
+/web/js/
+/web/icons/
+/web/images/
