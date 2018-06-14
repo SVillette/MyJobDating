@@ -1,2 +1,6 @@
+skill:
+    resource: "@MyJobDatingSkillBundle/Resources/config/routing.yml"
+    prefix:   /
+
 myjobdating_core:
     resource: "@MyJobDatingCoreBundle/Resources/config/routing.yml"
