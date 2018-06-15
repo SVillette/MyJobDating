@@ -17,7 +17,7 @@ class DefaultController extends Controller
             case 'GET': return $this->onGet();
             case 'POST': return $this->onPost($request);
             case 'PUT': return $this->onPut($request);
-            //case 'DELETE': return $this->onDelete($request);
+            case 'DELETE': return $this->onDelete($request);
         }
 
         return new Response("405 - METHOD NOT ALLOWED", 405);
@@ -80,8 +80,8 @@ class DefaultController extends Controller
      */
     private function onPut(Request $request): Response
     {
-        $mySkillId = $request->request->get("id");
-        $mySkillName = $request->request->get("name");
+        $mySkillId = $request->query->get("id");
+        $mySkillName = $request->query->get("name");
         
         return $this->updateSkill($mySkillId, $mySkillName);
     }
@@ -101,32 +101,31 @@ class DefaultController extends Controller
             return new Response("No skill name provided.", 400);
         }
 
-        $mySkill = new Skill($skillId);
-
         $myEntityManager = $this->getDoctrine()->getManager();
-        $myEntityManager->persist($mySkill);
+        $mySkill = $myEntityManager->find(Skill::class, $skillId);
+        $myPreviousSkillName = $mySkill->getName();
+
+        $mySkill->setName($skillName);
         $myEntityManager->flush();
 
-        return new Response("Skill n°'" . $skillId . "' has been renamed '" . $mySkill->getName() . "'.");
+        return new Response("Skill n°$skillId called '$myPreviousSkillName' has been renamed to '$skillName'.");
     }
 
     /**
      * @param Request $request
      * @return Response
      */
-    /*private function onDelete(Request $request): Response
+    private function onDelete(Request $request): Response
     {
         $mySkillId = $request->request->get("id");
         
         return $this->deleteSkill($mySkillId);
-    }*/
+    }
 
-    // TODO
    /**
      * @param int|null $mySkillId
      * @return Response
      */
-   /*
     private function deleteSkill(int $mySkillId = null)
     {
         if ( $mySkillId === null ) {
@@ -144,6 +143,6 @@ class DefaultController extends Controller
         $myManager->flush();
 
         return new response("Skill named '" . $mySkill->getName() . "' has been removed.");
-    }*/
+    }
 
 }
