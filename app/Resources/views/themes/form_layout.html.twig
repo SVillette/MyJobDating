@@ -1,0 +1,41 @@
+{% block text_row %}
+    <div class="form-group row">
+        {{ form_label(form, null, {
+            'label': label|trans,
+            'label_attr': {'class': 'col-md-2'}
+        }) }}
+        <div class="col-md-10">
+            {{ form_widget(form, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="invalid-feedback">
+            {{ form_errors(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block choice_row %}
+    <div class="row">
+        {{ form_label(form, null, {
+            'label': label|trans,
+            'label_attr': {'class': 'col-md-2'}
+        }) }}
+
+        {% if form.vars.expanded %}
+            <div class="col-md-10">
+                {% for child in form %}
+                    <div class="form-check form-check-inline">
+                        {{ form_row(child, { label_attr: {class: 'radio-custom-inline'} }) }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block submit_row %}
+    <div class="text-right">
+        {{ form_widget(form, { 'attr': {'class': 'btn btn-sm btn-primary'} }) }}
+    </div>
+{% endblock %}

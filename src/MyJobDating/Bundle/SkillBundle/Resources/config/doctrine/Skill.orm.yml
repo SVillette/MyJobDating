@@ -1,15 +1,15 @@
 MyJobDating\Bundle\SkillBundle\Entity\Skill:
-  type: entity
-  table: skill
-  id:
+    type: entity
+    table: skill
     id:
-      type: integer
-      generator:
-        strategy: AUTO
-  fields:
-    name:
-      type: string
-      length: 64
-  uniqueConstraints:
-    uniqueName:
-      columns: ['name']
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 64
+    uniqueConstraints:
+        uniqueName:
+            columns: ['name']

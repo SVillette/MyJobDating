@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new MyJobDating\Bundle\CoreBundle\MyJobDatingCoreBundle(),
+            new MyJobDating\Bundle\UserBundle\MyJobDatingUserBundle(),
             new MyJobDating\Bundle\SkillBundle\MyJobDatingSkillBundle(),
         ];
 

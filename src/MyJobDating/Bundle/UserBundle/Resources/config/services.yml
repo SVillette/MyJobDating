@@ -1,0 +1,6 @@
+services:
+    MyJobDating\Bundle\UserBundle\Controller\AuthenticationController:
+        arguments: ['@security.authentication_utils', '@security.password_encoder']
+    myjobdating.handler.logout_success_handler:
+        class: MyJobDating\Bundle\UserBundle\Security\LogoutHandler
+        arguments: ['@translator', '@router.default']

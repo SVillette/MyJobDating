@@ -1,0 +1,33 @@
+myjobdating:
+    app_name: MyJobDating
+    form:
+        account:
+            connect: Se connecter
+            email: Email
+            first_name: Prénom
+            full_name: Nom complet
+            last_name: Nom
+            login: Identifiant
+            password: Mot de passe
+            password_confirmation: Confirmer le mot de passe
+            register: S'enregister
+            remember_me: Se souvenir de moi
+            type: Type de compte
+    ui:
+        actions: Actions
+        already_an_account: Vous avez déjà un compte ?
+        candidate: Candidat
+        candidate_space: Espace candidat
+        connect: Se connecter
+        connect_to_app: Connexion à l'application
+        create_new_account: Création d'un nouveau compte
+        home: Accueil
+        login_page: Page de connexion
+        logout: Se déconnecter
+        my_account: Mon compte
+        not_register_yet: Pas encore inscrit ?
+        recruiter: Recruteur
+        recruiter_space: Espace recruteur
+        register: S'enregistrer
+        sign_up: Créer un compte
+        you_have_been_logout: Vous avez été déconnecté

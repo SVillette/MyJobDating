@@ -1,0 +1,67 @@
+MyJobDating\Bundle\UserBundle\Entity\User:
+    type: entity
+    table: users
+    repositoryClass: MyJobDating\Bundle\UserBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        firstName:
+            column: first_name
+            type: string
+            length: 50
+            unique: true
+        lastName:
+            column: last_name
+            type: string
+            length: 50
+            unique: true
+        email:
+            type: string
+            length: 50
+            unique: true
+        password:
+            type: string
+            length: 64
+        enabled:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+        role:
+            type: integer
+            nullable: false
+            options:
+                default: 1
+        createdAt:
+            type: datetime
+            column: created_at
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            column: updated_at
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
+            column: deleted_at
+            nullable: true
+    properties:
+        username:
+            - NotBlank: ~
+        email:
+            - NotBlank: ~
+            - Email: ~
+        plainPassword:
+            - NotBlank: ~
+            - Length:
+                max: 4096
+    lifecycleCallbacks: {  }
