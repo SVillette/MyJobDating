@@ -19,6 +19,7 @@ class AppKernel extends Kernel
 
             new MyJobDating\Bundle\CoreBundle\MyJobDatingCoreBundle(),
             new MyJobDating\Bundle\SkillBundle\MyJobDatingSkillBundle(),
+            new MyJobDating\Bundle\OfferBundle\MyJobDatingOfferBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

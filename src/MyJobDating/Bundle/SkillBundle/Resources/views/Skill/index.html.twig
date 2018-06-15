@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card mt-5">
+        <div class="card-header">
+            <h1>Compétences</h1>
+        </div>
+
+        <div class="card-body">
+            <form>
+                <p>
+                    Rechercher une compétence
+                    <input type="text" name="name" placeholder="Nom ou ID de la compétence" />
+                    <input type="submit" class="btn btn-primary" value="Rechercher"/>
+                    <input type="hidden" name="_method" value="get"/>
+                </p>
+            </form>
+
+            <table class="table table-striped">
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Action</th>
+                </tr>
+
+                {% if foundSkills is defined %}
+                    {% set mySkills = foundSkills %}
+                {% else %}
+                    {% set mySkills = skills %}
+                {% endif %}
+
+                {% for skill in mySkills %}
+                    <tr>
+                        <td>
+                            {{ skill.id }}
+                        </td>
+
+                        <td>
+                            <input form="form_{{ skill.id }}" type="text" name="name" placeholder="Nom de la compétence" value="{{ skill.name }}"/>
+                        </td>
+
+                        <td>
+                            <form id="form_{{ skill.id }}">
+                                <input type="hidden" name="id" value="{{ skill.id }}"/>
+
+                                <button type="submit" name="_method" value="put" class="btn btn-primary">Renommer</button>
+                                <button type="submit" name="_method" value="delete" class="btn btn-danger">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                <tr>
+                    <td></td>
+
+                    <td>
+                        <input form="add_skill" name="name" type="text" placeholder="Nom de la compétence"/>
+                    </td>
+
+                    <td>
+                        <form id="add_skill">
+                            <button type="submit" name="_method" value="post" class="btn btn-primary">Ajouter</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+
+            {% if successMessage is defined %}
+                <p class="text-success">
+                    {{ successMessage }}
+                </p>
+            {% endif %}
+
+            {% if errorMessage is defined %}
+                <p class="text-danger">
+                    {{ errorMessage }}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
