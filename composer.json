@@ -51,9 +51,6 @@
         "test": "simple-phpunit"
     },
     "config": {
-        "platform": {
-            "php": "5.6"
-        },
         "sort-packages": true
     },
     "extra": {
