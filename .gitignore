@@ -54,6 +54,10 @@
 # node_modules folder
 /node_modules/
 
+# images and icons folder
+/app/Resources/assets/icons
+/app/Resources/assets/images
+
 # web assets folder
 /web/css/
 /web/js/
