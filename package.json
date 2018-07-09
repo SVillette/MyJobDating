@@ -8,7 +8,7 @@
   "scripts": {
     "clean": "rimraf web/dist web/fonts/vendor web/images web/icons",
     "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "development": "cross-env NODE_ENV=development webpack --display-error-details --progress --hide-modules",
     "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
     "watch-poll": "npm run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
@@ -22,6 +22,7 @@
     "css-loader": "^0.28.10",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
+    "img-loader": "^3.0.0",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.1.1",
     "resolve-url-loader": "^2.3.0",
