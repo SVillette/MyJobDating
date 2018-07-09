@@ -1,10 +1,10 @@
 <?php
 
-namespace UserBundle\Tests\Controller;
+namespace MyJobDatingCoreBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class HomeControllerTest extends WebTestCase
 {
     public function testIndex()
     {
@@ -12,6 +12,6 @@ class DefaultControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        $this->assertContains('Hello World', $client->getResponse()->getContent());
+        $this->assertContains('homepage', $client->getResponse()->getContent());
     }
 }

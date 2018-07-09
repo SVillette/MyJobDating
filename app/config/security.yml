@@ -1,24 +1,47 @@
-# To get started with security, check out the documentation:
-# https://symfony.com/doc/current/security.html
 security:
 
-    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    encoders:
+        MyJobDating\Bundle\UserBundle\Entity\User:
+            algorithm: bcrypt
+
+    role_hierarchy:
+        ROLE_CANDIDATE: ~
+        ROLE_RECRUITER: ~
+        ROLE_ADMIN: ['ROLE_CANDIDATE', 'ROlE RECRUITER']
+
     providers:
-        in_memory:
-            memory: ~
+        myjobdating_basic_users_provider:
+            entity:
+                class: MyJobDatingUserBundle:User
+                property: email
 
     firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
         main:
+            pattern: ^/
+            http_basic: ~
+            provider: myjobdating_basic_users_provider
+            logout_on_user_change: true
             anonymous: ~
-            # activate different ways to authenticate
+            form_login:
+                csrf_token_generator: security.csrf.token_manager
+                default_target_path: myjobdating_core_homepage
+                login_path: myjobdating_user_authentication_login
+                check_path: myjobdating_user_authentication_login
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800
+                path: /
+                always_remember_me: false
+            logout:
+                success_handler: myjobdating.handler.logout_success_handler
+                path: /logout
+                target: /
 
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
-
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+    access_control:
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, roles: ROLE_ADMIN }

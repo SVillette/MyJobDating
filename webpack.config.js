@@ -80,7 +80,8 @@ let config = {
                         options: {
                             name: (path) => {
                                 if (!/node_modules/.test(path)) {
-                                    return 'images/[name].[ext]?[hash]'
+                                    return production ? '/images/[name].[ext][hash]'
+                                        : '/images/[name].[ext]'
                                 }
 
                                 return `images/vendor-${name}/` + path

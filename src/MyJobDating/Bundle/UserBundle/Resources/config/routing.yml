@@ -1,0 +1,2 @@
+myjobdating_user_authentication:
+    resource: "@MyJobDatingUserBundle/Resources/config/routing/authentication.yml"

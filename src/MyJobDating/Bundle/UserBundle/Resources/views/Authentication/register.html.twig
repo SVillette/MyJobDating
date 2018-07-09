@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'myjobdating.ui.create_new_account'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        {{ form_start(form) }}
+        <div class="card-header">
+            <h3>{{ 'myjobdating.ui.create_new_account'|trans }}</h3>
+        </div>
+        <div class="card-body">
+            {{ form_row(form.accountType) }}
+            <div class="form-group row">
+                {{ form_label(form.firstName, null, {
+                    'label': 'myjobdating.form.account.full_name'|trans,
+                    'label_attr': {'class': 'col-md-2'}
+                }) }}
+                <div class="col-md-5">
+                    {{ form_widget(form.firstName, { 'attr': {'class': 'form-control', 'placeholder': 'myjobdating.form.account.first_name'|trans} }) }}
+                </div>
+                <div class="col-md-5">
+                    {{ form_widget(form.lastName, { 'attr': {'class': 'form-control', 'placeholder': 'myjobdating.form.account.last_name'|trans} }) }}
+                </div>
+            </div>
+            {{ form_row(form.email) }}
+            {{ form_row(form.plainPassword.first) }}
+            {{ form_row(form.plainPassword.second) }}
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-lg-6">
+                    <span>{{ 'myjobdating.ui.already_an_account'|trans }}</span> <a href="{{ path('myjobdating_user_authentication_login') }}">{{ 'myjobdating.ui.connect'|trans }}</a>
+                </div>
+                <div class="col-lg-6">
+                    {{ form_row(form.save, { 'label': 'myjobdating.ui.register'|trans}) }}
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

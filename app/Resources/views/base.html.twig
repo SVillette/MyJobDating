@@ -8,6 +8,8 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     </head>
     <body>
+        {% include 'layouts/_header.html.twig' %}
+
         <div class="container">
             {% block body %}{% endblock %}
         </div>
