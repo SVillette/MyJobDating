@@ -23,7 +23,7 @@ class SkillController extends Controller
             '@MyJobDatingSkill/Skill/index.html.twig',
             array_merge(
                 [
-                    'skills' => $mySkillsList = $this->getDoctrine()->getRepository(Skill::class)->findAll()
+                    'skills' => $this->getDoctrine()->getRepository(Skill::class)->findAll()
                 ],
                 $myData
             ),
@@ -35,8 +35,7 @@ class SkillController extends Controller
      * @param Request $request
      * @return array
      */
-    private function onGet(Request $request): array
-    {
+    private function onGet(Request $request): array {
         $myName = $request->query->get('name');
 
         if ($myName) {
@@ -60,8 +59,7 @@ class SkillController extends Controller
      * @param Request $request
      * @return array
      */
-    private function onPost(Request $request): array
-    {
+    private function onPost(Request $request): array {
         $mySkillName = $request->query->get("name");
         return $this->createSkill($mySkillName);
     }
@@ -70,8 +68,7 @@ class SkillController extends Controller
      * @param string|null $skillName
      * @return array
      */
-    private function createSkill(?string $skillName): array
-    {
+    private function createSkill(?string $skillName): array {
         if ( !$skillName ) {
             return ["errorMessage" => "No skill name provided."];
         }
@@ -89,8 +86,7 @@ class SkillController extends Controller
      * @param Request $request
      * @return array
      */
-    private function onPut(Request $request): array
-    {
+    private function onPut(Request $request): array {
         $mySkillId = $request->query->get("id");
         $mySkillName = $request->query->get("name");
         
@@ -102,8 +98,7 @@ class SkillController extends Controller
      * @param string|null $skillName
      * @return array
      */
-    private function updateSkill(?int $skillId, ?string $skillName): array
-    {
+    private function updateSkill(?int $skillId, ?string $skillName): array {
         // Id 0 won't ever exist, simple comparison is safe
         if ( !$skillId ) {
             return ["successMessage" => "No skill ID provided."];
@@ -126,8 +121,7 @@ class SkillController extends Controller
      * @param Request $request
      * @return array
      */
-    private function onDelete(Request $request): array
-    {
+    private function onDelete(Request $request): array {
         $mySkillId = $request->query->get("id");
         
         return $this->deleteSkill($mySkillId);
@@ -137,8 +131,7 @@ class SkillController extends Controller
      * @param int|null $mySkillId
      * @return array
      */
-    private function deleteSkill(?int $mySkillId): array
-    {
+    private function deleteSkill(?int $mySkillId): array {
         if ( $mySkillId === null ) {
             return ["errorMessage" => "No skill ID provided."];
         }
