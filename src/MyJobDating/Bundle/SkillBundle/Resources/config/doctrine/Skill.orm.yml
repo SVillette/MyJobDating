@@ -4,6 +4,7 @@ MyJobDating\Bundle\SkillBundle\Entity\Skill:
     id:
         id:
             type: integer
+            id: true
             generator:
                 strategy: AUTO
     fields:

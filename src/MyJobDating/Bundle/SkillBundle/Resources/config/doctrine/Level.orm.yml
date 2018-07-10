@@ -1,0 +1,40 @@
+MyJobDating\Bundle\SkillBundle\Entity\Level:
+    type: entity
+    table: level
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 64
+        value:
+            type: integer
+            nullable: false
+            options:
+                default: 0
+        enabled:
+            type: boolean
+            options:
+                default: false
+        createdAt:
+            type: datetime
+            column: created_at
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            column: updated_at
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
+            column: deleted_at
+            nullable: true
