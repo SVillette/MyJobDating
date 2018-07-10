@@ -48,6 +48,16 @@ class User implements UserInterface, Serializable
     private $role;
 
     /**
+     * @var CandidateInterface|null
+     */
+    private $candidate;
+
+    /**
+     * @var RecruiterInterface|null
+     */
+    private $recruiter;
+
+    /**
      * Returns the username used to authenticate the user.
      *
      * @return string The username
@@ -232,4 +242,39 @@ class User implements UserInterface, Serializable
     {
         $this->skills = $skills;
     }
+
+
+    /**
+     * @return CandidateInterface|null
+     */
+    public function getCandidate(): ?CandidateInterface
+    {
+        return $this->candidate;
+    }
+
+    /**
+     * @param CandidateInterface|null $candidate
+     */
+    public function setCandidate(?CandidateInterface $candidate): void
+    {
+        $this->candidate = $candidate;
+    }
+
+    /**
+     * @return RecruiterInterface|null
+     */
+    public function getRecruiter(): ?RecruiterInterface
+    {
+        return $this->recruiter;
+    }
+
+    /**
+     * @param RecruiterInterface|null $recruiter
+     */
+    public function setRecruiter(?RecruiterInterface $recruiter): void
+    {
+        $this->recruiter = $recruiter;
+    }
+
+
 }

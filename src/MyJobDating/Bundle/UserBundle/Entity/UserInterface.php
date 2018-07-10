@@ -64,4 +64,24 @@ interface UserInterface extends
      * @param int $role
      */
     public function setRole(int $role): void;
+
+    /**
+     * @return CandidateInterface|null
+     */
+    public function getCandidate(): ?CandidateInterface;
+
+    /**
+     * @param CandidateInterface|null $candidate
+     */
+    public function setCandidate(?CandidateInterface $candidate): void;
+
+    /**
+     * @return RecruiterInterface|null
+     */
+    public function getRecruiter(): ?RecruiterInterface;
+
+    /**
+     * @param RecruiterInterface|null $recruiter
+     */
+    public function setRecruiter(?RecruiterInterface $recruiter): void;
 }

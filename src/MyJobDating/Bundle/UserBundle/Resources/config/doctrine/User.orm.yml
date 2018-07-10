@@ -1,6 +1,6 @@
 MyJobDating\Bundle\UserBundle\Entity\User:
     type: entity
-    table: users
+    table: user
     repositoryClass: MyJobDating\Bundle\UserBundle\Repository\UserRepository
     id:
         id:
@@ -65,6 +65,18 @@ MyJobDating\Bundle\UserBundle\Entity\User:
                 inverseJoinColumns:
                     skill_id:
                         referencedColumnName: id
+
+    oneToOne:
+        candidate:
+            targetEntity: MyJobDating\Bundle\UserBundle\Entity\Candidate
+            joinColumn:
+                name: candidate_id
+                referencedColumnName: id
+        recruiter:
+            targetEntity: MyJobDating\Bundle\UserBundle\Entity\Recruiter
+            joinColumn:
+                name: recruiter_id
+                referencedColumnName: id
 
     properties:
         username:

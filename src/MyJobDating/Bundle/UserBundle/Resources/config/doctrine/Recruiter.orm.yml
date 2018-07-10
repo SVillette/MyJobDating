@@ -1,0 +1,16 @@
+MyJobDating\Bundle\UserBundle\Entity\Recruiter:
+    type: entity
+    table: recruiter
+    id:
+        id:
+            type: integer
+            id: true
+            strategy:
+                generator: AUTO
+    oneToOne:
+        user:
+            targetEntity: MyJobDating\Bundle\UserBundle\Entity\User
+            inversedBy: recruiter
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
