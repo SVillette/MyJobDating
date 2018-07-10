@@ -31,7 +31,7 @@ class SkillController extends Controller
         );
     }
 
-    public function addAction(id){
+    public function addAction($id){
         return $this->render('@MyJobDatingSkill/Skill/add.html.twig');
     }
 
