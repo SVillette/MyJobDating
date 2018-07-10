@@ -1,0 +1,7 @@
+myjobdating_admin_skills_index:
+    methods: ['GET']
+    path: /index
+
+myjobdating_admin_skills_add:
+    methods: ['GET', 'POST']
+    path: /add
