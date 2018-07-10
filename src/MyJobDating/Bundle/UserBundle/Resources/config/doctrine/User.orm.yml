@@ -13,12 +13,10 @@ MyJobDating\Bundle\UserBundle\Entity\User:
             column: first_name
             type: string
             length: 50
-            unique: true
         lastName:
             column: last_name
             type: string
             length: 50
-            unique: true
         email:
             type: string
             length: 50

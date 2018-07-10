@@ -6,10 +6,30 @@ MyJobDating\Bundle\SkillBundle\Entity\Skill:
             type: integer
             generator:
                 strategy: AUTO
+
     fields:
         name:
             type: string
-            length: 64
-    uniqueConstraints:
-        uniqueName:
-            columns: ['name']
+            length: 30
+            nullable: false
+            unique: true
+
+        createdAt:
+            type: datetime
+            column: created_at
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: create
+
+        updatedAt:
+            type: datetime
+            column: updated_at
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: update
+
+    properties:
+        name:
+            - NotBlank: ~
