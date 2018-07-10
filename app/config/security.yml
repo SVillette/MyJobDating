@@ -7,7 +7,7 @@ security:
     role_hierarchy:
         ROLE_CANDIDATE: ~
         ROLE_RECRUITER: ~
-        ROLE_ADMIN: ['ROLE_CANDIDATE', 'ROlE RECRUITER']
+        ROLE_ADMIN: ['ROLE_CANDIDATE', 'ROLE_RECRUITER']
 
     providers:
         myjobdating_basic_users_provider:

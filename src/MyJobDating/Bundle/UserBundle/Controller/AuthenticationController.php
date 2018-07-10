@@ -32,7 +32,7 @@ class AuthenticationController extends Controller
     public function loginAction(): Response
     {
         $authorizationChecker = $this->container->get('security.authorization_checker');
-        if ($authorizationChecker->isGranted('ROlE RECRUITER')
+        if ($authorizationChecker->isGranted('ROLE_RECRUITER')
             || $authorizationChecker->isGranted('ROLE_CANDIDATE')) {
             return $this->redirectToRoute('myjobdating_core_homepage');
         }

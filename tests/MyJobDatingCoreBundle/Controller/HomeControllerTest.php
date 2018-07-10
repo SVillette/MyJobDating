@@ -8,7 +8,7 @@ class HomeControllerTest extends WebTestCase
 {
     public function testIndex()
     {
-        $client = static::createClient();
+        $client = $this->createClient();
 
         $crawler = $client->request('GET', '/');
 
