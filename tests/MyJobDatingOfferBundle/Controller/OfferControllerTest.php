@@ -4,7 +4,7 @@ namespace OfferBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class OfferControllerTest extends WebTestCase
 {
     public function testIndex()
     {
