@@ -2,7 +2,9 @@
 
 namespace MyJobDating\Bundle\UserBundle\Entity;
 
-interface RecruiterInterface extends  UserableInterface
+use MyJobDating\Bundle\CoreBundle\Entity\ResourceInterface;
+
+interface RecruiterInterface extends ResourceInterface
 {
 
 }

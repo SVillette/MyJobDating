@@ -275,6 +275,4 @@ class User implements UserInterface, Serializable
     {
         $this->recruiter = $recruiter;
     }
-
-
 }

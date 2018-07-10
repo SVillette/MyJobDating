@@ -6,5 +6,5 @@ use MyJobDating\Bundle\CoreBundle\Entity\ResourceTrait;
 
 class Recruiter implements RecruiterInterface
 {
-   use ResourceTrait, UserableTrait;
+   use ResourceTrait;
 }
