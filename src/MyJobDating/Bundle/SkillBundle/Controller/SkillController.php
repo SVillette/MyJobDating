@@ -3,6 +3,7 @@
 namespace MyJobDating\Bundle\SkillBundle\Controller;
 
 use MyJobDating\Bundle\SkillBundle\Entity\Skill;
+use MyJobDating\Bundle\UserBundle\Entity\Candidate;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,7 +33,7 @@ class SkillController extends Controller
     }
 
     public function addAction($id){
-        $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('id' => $id));
+        $user = $this->getDoctrine()->getRepository(Candidate::class)->findOneBy(array('id' => $id));
         $skills = $this->getDoctrine()->getRepository(Skill::class)->findAll();
         $mySkills = $user->getSkills();
         $data = array(
