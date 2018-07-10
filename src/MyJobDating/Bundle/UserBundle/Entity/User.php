@@ -47,6 +47,11 @@ class User implements UserInterface, Serializable
     private $role;
 
     /**
+     * @var array
+     */
+    private $offers;
+
+    /**
      * Returns the username used to authenticate the user.
      *
      * @return string The username
@@ -214,5 +219,21 @@ class User implements UserInterface, Serializable
             $this->email,
             $this->password
             ) = unserialize($serialized);
+    }
+
+    /**
+     * @return array
+     */
+    public function getOffers(): array
+    {
+        return $this->offers;
+    }
+
+    /**
+     * @param array $offers
+     */
+    public function setOffers(array $offers): void
+    {
+        $this->offers = $offers;
     }
 }

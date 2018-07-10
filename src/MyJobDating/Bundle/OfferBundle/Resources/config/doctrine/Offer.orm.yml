@@ -44,11 +44,12 @@ MyJobDating\Bundle\OfferBundle\Entity\Offer:
             column: deleted_at
             nullable: true
 
-    oneToOne:
+    manyToOne:
         recruiter:
             targetEntity: MyJobDating\Bundle\UserBundle\Entity\User
+            inversedBy: offers
             joinColumn:
-                name: user_id
+                name: recruiter_id
                 referencedColumnName: id
 
     manyToMany:

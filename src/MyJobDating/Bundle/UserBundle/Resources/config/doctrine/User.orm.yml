@@ -52,6 +52,12 @@ MyJobDating\Bundle\UserBundle\Entity\User:
             type: datetime
             column: deleted_at
             nullable: true
+
+    oneToMany:
+        offers:
+            targetEntity: MyJobDating\Bundle\OfferBundle\Entity\Offer
+            mappedBy: recruiter
+
     properties:
         username:
             - NotBlank: ~
