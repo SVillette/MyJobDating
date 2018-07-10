@@ -12,6 +12,5 @@ class HomeControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        $this->assertContains('homepage', $client->getResponse()->getContent());
     }
 }
