@@ -1,5 +1,6 @@
 imports:
     - { resource: "@MyJobDatingCoreBundle/Resources/config/services.yml" }
+    - { resource: "@MyJobDatingAdminBundle/Resources/config/services.yml" }
     - { resource: "@MyJobDatingUserBundle/Resources/config/services.yml" }
     - { resource: "@MyJobDatingOfferBundle/Resources/config/services.yml" }
     - { resource: "@MyJobDatingSkillBundle/Resources/config/services.yml" }

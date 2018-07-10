@@ -1,3 +1,7 @@
+myjobdating_admin:
+    resource: "@MyJobDatingAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
 offer:
     resource: "@MyJobDatingOfferBundle/Resources/config/routing.yml"
     prefix:   /
