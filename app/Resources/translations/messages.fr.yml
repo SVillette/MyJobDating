@@ -19,6 +19,7 @@ myjobdating:
         candidate: Candidat
         candidate_space: Espace candidat
         connect: Se connecter
+        connect_as_admin: Se connecter en administrateur
         connect_to_app: Connexion à l'application
         create_new_account: Création d'un nouveau compte
         home: Accueil

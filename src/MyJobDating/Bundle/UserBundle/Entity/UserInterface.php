@@ -15,6 +15,9 @@ interface UserInterface extends
     TimestampableInterface,
     DeletableInterface
 {
+    public const ROLE_CANDIDATE = 1;
+    public const ROLE_RECRUITER = 2;
+
     /**
      * @return null|string
      */
@@ -54,6 +57,11 @@ interface UserInterface extends
      * @param null|string $plainPassword
      */
     public function setPlainPassword(?string $plainPassword): void;
+
+    /**
+     * @param null|string $password
+     */
+    public function setPassword(?string $password): void;
 
     /**
      * @return int

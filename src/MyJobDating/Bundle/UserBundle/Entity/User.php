@@ -12,10 +12,6 @@ class User implements UserInterface, Serializable
 {
     use ResourceTrait, TimestampableTrait, ToggleableTrait, DeletableTrait;
 
-    public const ROLE_CANDIDATE = 1;
-    public const ROLE_RECRUITER = 2;
-    public const ROLE_ADMIN = 3;
-
     /**
      * @var string
      */
@@ -167,8 +163,6 @@ class User implements UserInterface, Serializable
                 return array('ROLE_CANDIDATE');
             case self::ROLE_RECRUITER:
                 return array('ROLE_RECRUITER');
-            case self::ROLE_ADMIN:
-                return array('ROLE_ADMIN');
             default:
                 return array();
         }

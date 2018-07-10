@@ -34,7 +34,7 @@ class SkillController extends Controller
     public function addAction($id){
         $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('id' => $id));
         $skills = $this->getDoctrine()->getRepository(Skill::class)->findAll();
-        $mySkills : $user->getSkills();
+        $mySkills = $user->getSkills();
         $data = array(
           'skills' => $skills,
           'mySkills' => $mySkills,

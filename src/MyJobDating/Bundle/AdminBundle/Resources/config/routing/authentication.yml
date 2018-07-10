@@ -1,0 +1,4 @@
+myjobdating_admin_authentication_login:
+    path: /login
+    defaults:
+        _controller: MyJobDatingAdminBundle:Authentication:login
