@@ -43,6 +43,16 @@ class User implements UserInterface, Serializable
     private $role;
 
     /**
+     * @var CandidateInterface|null
+     */
+    private $candidate;
+
+    /**
+     * @var RecruiterInterface|null
+     */
+    private $recruiter;
+
+    /**
      * Returns the username used to authenticate the user.
      *
      * @return string The username
