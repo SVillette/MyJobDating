@@ -53,10 +53,18 @@ MyJobDating\Bundle\UserBundle\Entity\User:
             column: deleted_at
             nullable: true
 
-    oneToMany:
-        offers:
-            targetEntity: MyJobDating\Bundle\OfferBundle\Entity\Offer
-            mappedBy: recruiter
+    manyToMany:
+        skills:
+            targetEntity: MyJobDating\Bundle\SkillBundle\Entity\Skill
+            joinTable:
+                name: user_skill
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+
+                inverseJoinColumns:
+                    skill_id:
+                        referencedColumnName: id
 
     properties:
         username:

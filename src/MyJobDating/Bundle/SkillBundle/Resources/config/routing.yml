@@ -1,3 +1,9 @@
 skill_homepage:
     path:     /admin/skills
     defaults: { _controller: MyJobDatingSkillBundle:Skill:index }
+    
+myjobdating_skill_add:
+    path:     /user/{id}/skills/add
+    defaults: { _controller: MyJobDatingSkillBundle:Skill:add }
+    requirements:
+      id: '\d+'

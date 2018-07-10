@@ -31,3 +31,8 @@ myjobdating:
         register: S'enregistrer
         sign_up: Créer un compte
         you_have_been_logout: Vous avez été déconnecté
+        skill: Compétences
+
+    tab:
+        add: Ajouter
+        edit: Editer

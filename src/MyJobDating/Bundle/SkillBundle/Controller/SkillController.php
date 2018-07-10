@@ -31,6 +31,10 @@ class SkillController extends Controller
         );
     }
 
+    public function addAction(id){
+        return $this->render('@MyJobDatingSkill/Skill/add.html.twig');
+    }
+
     /**
      * @param Request $request
      * @return array
@@ -89,7 +93,7 @@ class SkillController extends Controller
     private function onPut(Request $request): array {
         $mySkillId = $request->query->get("id");
         $mySkillName = $request->query->get("name");
-        
+
         return $this->updateSkill($mySkillId, $mySkillName);
     }
 
@@ -123,7 +127,7 @@ class SkillController extends Controller
      */
     private function onDelete(Request $request): array {
         $mySkillId = $request->query->get("id");
-        
+
         return $this->deleteSkill($mySkillId);
     }
 
