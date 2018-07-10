@@ -1,6 +1,6 @@
 MyJobDating\Bundle\UserBundle\Entity\User:
     type: entity
-    table: user
+    table: users
     repositoryClass: MyJobDating\Bundle\UserBundle\Repository\UserRepository
     id:
         id:
@@ -53,30 +53,7 @@ MyJobDating\Bundle\UserBundle\Entity\User:
             column: deleted_at
             nullable: true
 
-    manyToMany:
-        skills:
-            targetEntity: MyJobDating\Bundle\SkillBundle\Entity\Skill
-            joinTable:
-                name: user_skill
-                joinColumns:
-                    user_id:
-                        referencedColumnName: id
 
-                inverseJoinColumns:
-                    skill_id:
-                        referencedColumnName: id
-
-    oneToOne:
-        candidate:
-            targetEntity: MyJobDating\Bundle\UserBundle\Entity\Candidate
-            joinColumn:
-                name: candidate_id
-                referencedColumnName: id
-        recruiter:
-            targetEntity: MyJobDating\Bundle\UserBundle\Entity\Recruiter
-            joinColumn:
-                name: recruiter_id
-                referencedColumnName: id
 
     properties:
         username:

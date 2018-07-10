@@ -15,7 +15,6 @@ class User implements UserInterface, Serializable
     public const ROLE_CANDIDATE = 1;
     public const ROLE_RECRUITER = 2;
     public const ROLE_ADMIN = 3;
-    private $skills;
 
     /**
      * @var string
@@ -46,16 +45,6 @@ class User implements UserInterface, Serializable
      * @var int
      */
     private $role;
-
-    /**
-     * @var CandidateInterface|null
-     */
-    private $candidate;
-
-    /**
-     * @var RecruiterInterface|null
-     */
-    private $recruiter;
 
     /**
      * Returns the username used to authenticate the user.
@@ -226,23 +215,6 @@ class User implements UserInterface, Serializable
             $this->password
             ) = unserialize($serialized);
     }
-
-    /**
-     * @return mixed
-     */
-    public function getSkills()
-    {
-        return $this->skills;
-    }
-
-    /**
-     * @param mixed $skills
-     */
-    public function setSkills($skills): void
-    {
-        $this->skills = $skills;
-    }
-
 
     /**
      * @return CandidateInterface|null

@@ -32,7 +32,15 @@ class SkillController extends Controller
     }
 
     public function addAction($id){
-        return $this->render('@MyJobDatingSkill/Skill/add.html.twig');
+        $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('id' => $id));
+        $skills = $this->getDoctrine()->getRepository(Skill::class)->findAll();
+        $mySkills : $user->getSkills();
+        $data = array(
+          'skills' => $skills,
+          'mySkills' => $mySkills,
+        );
+
+        return $this->render('@MyJobDatingSkill/Skill/add.html.twig', $data);
     }
 
     /**
