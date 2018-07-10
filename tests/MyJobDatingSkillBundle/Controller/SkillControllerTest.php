@@ -1,6 +1,6 @@
 <?php
 
-namespace SkillBundle\Tests\Controller;
+namespace MyJobDatingSkillBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

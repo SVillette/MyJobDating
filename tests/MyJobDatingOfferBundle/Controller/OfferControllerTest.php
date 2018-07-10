@@ -1,6 +1,6 @@
 <?php
 
-namespace OfferBundle\Tests\Controller;
+namespace MyJobDatingOfferBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
