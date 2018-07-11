@@ -7,9 +7,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class SkillController extends Controller
 {
+    private $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
+
     /**
      * @param string|null $skillName
      * @return array
@@ -41,7 +50,7 @@ class SkillController extends Controller
         return $this->render(
             '@MyJobDatingSkill/Skill/index.html.twig',
             [
-                "skills" => $this->getSkills($request->query->get("name")),
+                "skills" => $this->getSkills($myMethod ? null : $request->query->get("name")),
                 "errorMessage" => isset($myMessage["errorMessage"]) ? $myMessage["errorMessage"] : null,
                 "successMessage" => isset($myMessage["successMessage"]) ? $myMessage["successMessage"] :  null,
             ]
@@ -61,7 +70,15 @@ class SkillController extends Controller
         $myNewSkillName = $query->get("name");
 
         if ( !$myNewSkillName ) {
-            return ["errorMessage" => "No skill name was provided."];
+            return [
+                "errorMessage" => $this->translator->trans(
+                    "myjobdating.message.error.missing",
+                    [
+                        "%property%" => $this->translator->trans("myjobdating.ui.name"),
+                        "%resource%" => $this->translator->trans("myjobdating.ui.skill")
+                    ]
+                )
+            ];
         }
 
         $mySkill = new Skill($myNewSkillName);
@@ -70,7 +87,16 @@ class SkillController extends Controller
         $myEntityManager->persist($mySkill);
         $myEntityManager->flush();
 
-        return ["successMessage" => "Skill '" . $myNewSkillName . "' added with ID '" . $mySkill->getId() . "'."];
+        return [
+            "successMessage" => $this->translator->trans(
+                "myjobdating.message.success.added",
+                [
+                    "%resource%" => $this->translator->trans("myjobdating.ui.skill"),
+                    "%name%" => $myNewSkillName,
+                    "%id%" => $mySkill->getId()
+                ]
+            )
+        ];
     }
 
     /**
@@ -84,10 +110,27 @@ class SkillController extends Controller
 
         // Id 0 won't ever exist, simple comparison is safe
         if ( !$mySkillToUpdateId ) {
-            return ["successMessage" => "No skill ID was provided."];
+            return [
+                "errorMessage" => $this->translator->trans(
+                    "myjobdating.message.error.missing",
+                    [
+                        "%property%" => "ID",
+                        "%resource%" => $this->translator->trans("myjobdating.ui.skill")
+                    ]
+                )
+            ];
         }
+
         if ( !$myNewSkillName ) {
-            return ["errorMessage" => "No new skill name was provided."];
+            return [
+                "errorMessage" => $this->translator->trans(
+                    "myjobdating.message.error.missing",
+                    [
+                        "%property%" => $this->translator->trans("myjobdating.ui.name"),
+                        "%resource%" => $this->translator->trans("myjobdating.ui.skill")
+                    ]
+                )
+            ];
         }
 
         $myEntityManager = $this->getDoctrine()->getManager();
@@ -97,7 +140,16 @@ class SkillController extends Controller
         $mySkill->setName($myNewSkillName);
         $myEntityManager->flush();
 
-        return ["successMessage" => "Skill n°$mySkillToUpdateId called '$myPreviousSkillName' has been renamed to '$myNewSkillName'."];
+        return [
+            "successMessage" => $this->translator->trans(
+                "myjobdating.message.success.renamed",
+                [
+                    "%resource%" => $this->translator->trans("myjobdating.ui.skill"),
+                    "%old_name%" => $myPreviousSkillName,
+                    "%new_name%" => $myNewSkillName
+                ]
+            )
+        ];
     }
 
     /**
@@ -109,19 +161,43 @@ class SkillController extends Controller
         $mySkillToDeleteId = $query->get("id");
 
         if ( $mySkillToDeleteId === null ) {
-            return ["errorMessage" => "No skill ID provided."];
+            return [
+                "errorMessage" => $this->translator->trans(
+                    "myjobdating.message.error.missing",
+                    [
+                        "%property%" => "ID",
+                        "%resource%" => $this->translator->trans("myjobdating.ui.skill")
+                    ]
+                )
+            ];
         }
 
         $myManager = $this->getDoctrine()->getManager();
         $mySkill = $myManager->find(Skill::class, $mySkillToDeleteId);
 
         if ( !$mySkill ) {
-            return ["errorMessage" => "Unknown skill ID."];
+            return [
+                "errorMessage" => $this->translator->trans(
+                    "myjobdating.message.error.unknown",
+                    [
+                        "%property%" => "ID",
+                        "%resource%" => $this->translator->trans("myjobdating.ui.skill")
+                    ]
+                )
+            ];
         }
 
         $myManager->remove($mySkill);
         $myManager->flush();
 
-        return ["successMessage" => "Skill named '" . $mySkill->getName() . "' has been removed."];
+        return [
+            "successMessage" => $this->translator->trans(
+                "myjobdating.message.success.deleted",
+                [
+                    "%resource%" => $this->translator->trans("myjobdating.ui.skill"),
+                    "%name%" => $mySkill->getName()
+                ]
+            )
+        ];
     }
 }
