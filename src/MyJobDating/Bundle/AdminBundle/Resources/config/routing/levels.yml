@@ -1,0 +1,27 @@
+myjobdating_admin_levels_index:
+    path: /
+    methods: ['GET']
+    defaults:
+        _controller: MyJobDatingAdminBundle:Level:index
+
+myjobdating_admin_levels_add:
+    path: /add
+    methods: ['GET', 'POST']
+    defaults:
+        _controller: MyJobDatingAdminBundle:Level:add
+
+myjobdating_admin_levels_update:
+    path: /{id}/update
+    methods: ['GET', 'PUT']
+    defaults:
+        _controller: MyJobDatingAdminBundle:Level:update
+    requirements:
+        id: '\d+'
+
+myjobdating_admin_levels_delete:
+    path: /{id}/delete
+    methods: ['DELETE']
+    defaults:
+        _controller: MyJobDatingAdminBundle:Level:delete
+    requirements:
+        id: '\d+'

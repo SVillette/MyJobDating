@@ -1,0 +1,21 @@
+{% extends 'layouts/admin/base.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        {{ form_start(form) }}
+        <div class="card-header">
+            {{ 'myjobdating.ui.level_update'|trans }}
+        </div>
+        <div class="card-body">
+            {{ form_row(form.name) }}
+            {{ form_row(form.value) }}
+        </div>
+        <div class="card-footer">
+            <div class="float-right">
+                {{ form_row(form.save, {'attr': {'class': 'btn btn-sm btn-primary'} }) }}
+            </div>
+            <a href="{{ path('myjobdating_admin_levels_index') }}" class="btn btn-sm btn-danger">{{ 'myjobdating.ui.back'|trans }}</a>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

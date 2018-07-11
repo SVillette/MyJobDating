@@ -19,6 +19,7 @@ myjobdating:
         add: Ajouter
         admin_panel: Panneau d'administration
         already_an_account: Vous avez déjà un compte ?
+        back: Retour
         backoffice: Backoffice
         candidate: Candidat
         candidate_space: Espace candidat
@@ -30,6 +31,11 @@ myjobdating:
         delete: Supprimer
         edit: Modifier
         home: Accueil
+        level: Niveau
+        levels: Niveaux
+        level_add: Ajouter un niveau
+        level_update: Mettre à jour un niveau
+        level_none: Aucun niveau
         login_page: Page de connexion
         logout: Se déconnecter
         manage_resource: 'Gérer les %resource%'
@@ -47,8 +53,10 @@ myjobdating:
         search: Rechercher
         sign_up: Créer un compte
         skill_name: Nom de la compétence
+        update: Modifier
         users: Utilisateurs
         users_count: '{0, 1} utilisateur | [1, Inf[ utilisateurs'
+        value: Valeur
         you_have_been_logout: Vous avez été déconnecté
         skills: Compétences
         skill: Compétence
