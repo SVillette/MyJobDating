@@ -16,6 +16,7 @@ myjobdating:
     ui:
         actions: Actions
         already_an_account: Vous avez déjà un compte ?
+        backoffice: Backoffice
         candidate: Candidat
         candidate_space: Espace candidat
         connect: Se connecter
