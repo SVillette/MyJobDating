@@ -61,6 +61,8 @@ myjobdating:
         success:
             added: "%resource% avec le nom %name% a été ajouté avec l'ID %id%."
             deleted: "%resource% \"%name%\" a été supprimé(e)."
+            renamed: "%resource% \"%old_name%\" a été renommé en \"%new_name%\"."
 
         error:
             unknown: "%property% de %resource% inconnu."
+            missing: "%property% de %resource% manquant."
