@@ -2,6 +2,7 @@ myjobdating:
     app_name: MyJobDating
     form:
         account:
+            company: Entreprise
             connect: Se connecter
             email: Email
             first_name: Prénom

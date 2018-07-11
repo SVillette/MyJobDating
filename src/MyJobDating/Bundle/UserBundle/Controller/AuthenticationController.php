@@ -4,6 +4,7 @@ namespace MyJobDating\Bundle\UserBundle\Controller;
 
 use DateTime;
 use MyJobDating\Bundle\UserBundle\Entity\Candidate;
+use MyJobDating\Bundle\UserBundle\Entity\Company;
 use MyJobDating\Bundle\UserBundle\Entity\Recruiter;
 use MyJobDating\Bundle\UserBundle\Entity\User;
 use MyJobDating\Bundle\UserBundle\Form\Type\UserType;
@@ -71,7 +72,14 @@ class AuthenticationController extends Controller
                 $user->setCandidate($candidate);
 
             } else if ($user->getRole() === User::ROLE_RECRUITER) {
+                $company = new Company;
+                $company->setName($request->get('user')['company']);
+                $company->setCreatedAt(new DateTime);
+                $company->setUpdatedAt(new DateTime);
+                $entityManager->persist($company);
+
                 $recruiter = new Recruiter;
+                $recruiter->setCompany($company);
                 $entityManager->persist($recruiter);
                 $user->setRecruiter($recruiter);
             }

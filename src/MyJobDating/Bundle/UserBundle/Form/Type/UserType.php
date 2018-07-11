@@ -29,6 +29,10 @@ class UserType extends AbstractType
                     'myjobdating.ui.recruiter' => 'recruiter'
                 )
             ))
+            ->add('company', TextType::class, array(
+                'label' => 'myjobdating.form.account.company',
+                'mapped' => false,
+            ))
             ->add('firstName', TextType::class, array(
                 'label' => 'myjobdating.form.account.first_name',
                 'required' => true
