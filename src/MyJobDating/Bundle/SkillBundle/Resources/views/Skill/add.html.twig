@@ -1,29 +1,46 @@
 {% extends 'base.html.twig' %}
+{% block title %}
+{{ 'myjobdating.tab.add'|trans }}
+{% endblock %}
 {% block body %}
-Ajouter
-<div class="col-md-12">
-  <div class="col-md-4">
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">Nom</th>
-          <th scope="col">Level</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for mySkill in mySkills %}
-        <tr>
-          <td>{{ mySkill.name }}</td>
-          <td>{{ mySkill.level }}</td>
-        </tr>
-        {% endfor %}
-  </tbody>
-</table>
+
+<div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">{{ 'myjobdating.skill.myskills'|trans }}</label>
+        <table class="table" id="skilltable">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">{{ 'myjobdating.skill.name'|trans }}</th>
+              <th scope="col">{{ 'myjobdating.skill.level'|trans }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for mySkill in mySkills %}
+            <tr>
+              <td>{{ mySkill.name }}</td>
+              <td>{{ mySkill.level }}</td>
+            </tr>
+            {% endfor %}
+            <tr class="d-none" id="X" name="model">
+              <td id="X-name"></td>
+              <td id="X-level">Non défini</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
   </div>
-  <div class="col-md-4">
-    {% for skill in skills %}
-        {{ skill.name }}
-    {% endfor %}
-  </div>
+  <div class="col-md-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">{{ 'myjobdating.skill.addform'|trans }}</label>
+        <select multiple class="form-control" id="selectskills">
+          {% for skill in skills %}
+            <div class="form-group">
+              <option id="{{ skill.id }}">{{ skill.name }}</option>
+            </div>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
 </div>
 {% endblock %}

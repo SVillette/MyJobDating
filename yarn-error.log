@@ -4270,7 +4270,7 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 2
+  Exit code: 1
   Command: C:\WINDOWS\system32\cmd.exe
   Arguments: /d /s /c npm run development
   Directory: C:\xampp\htdocs\MyJobDating

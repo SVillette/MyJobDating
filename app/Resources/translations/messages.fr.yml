@@ -37,3 +37,9 @@ myjobdating:
     tab:
         add: Ajouter
         edit: Editer
+
+    skill:
+        addform: Ajouter une compétence
+        level: Level
+        name: Intitulé
+        myskills: Mes compétences
