@@ -1,0 +1,4 @@
+myjobdating_admin_skills_index:
+    path: /
+    methods: ['GET']
+    defaults: { _controller: MyJobDatingAdminBundle:Skill:index }

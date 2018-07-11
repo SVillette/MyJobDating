@@ -52,6 +52,9 @@ MyJobDating\Bundle\UserBundle\Entity\User:
             type: datetime
             column: deleted_at
             nullable: true
+
+
+
     properties:
         username:
             - NotBlank: ~

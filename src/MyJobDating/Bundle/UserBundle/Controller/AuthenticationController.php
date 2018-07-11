@@ -3,6 +3,9 @@
 namespace MyJobDating\Bundle\UserBundle\Controller;
 
 use DateTime;
+use MyJobDating\Bundle\UserBundle\Entity\Candidate;
+use MyJobDating\Bundle\UserBundle\Entity\Company;
+use MyJobDating\Bundle\UserBundle\Entity\Recruiter;
 use MyJobDating\Bundle\UserBundle\Entity\User;
 use MyJobDating\Bundle\UserBundle\Form\Type\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -51,19 +54,39 @@ class AuthenticationController extends Controller
             return $this->redirectToRoute('myjobdating_core_homepage');
         }
 
-        $user = new User();
+        $user = new User;
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+
             $password = $this->passwordEncoder->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
             $user->setRole($request->request->get('user')['accountType'] === 'recruiter' ? User::ROLE_RECRUITER : User::ROLE_CANDIDATE);
+
+            if ($user->getRole() === User::ROLE_CANDIDATE) {
+                $candidate = new Candidate;
+                $entityManager->persist($candidate);
+                $user->setCandidate($candidate);
+
+            } else if ($user->getRole() === User::ROLE_RECRUITER) {
+                $company = new Company;
+                $company->setName($request->get('user')['company']);
+                $company->setCreatedAt(new DateTime);
+                $company->setUpdatedAt(new DateTime);
+                $entityManager->persist($company);
+
+                $recruiter = new Recruiter;
+                $recruiter->setCompany($company);
+                $entityManager->persist($recruiter);
+                $user->setRecruiter($recruiter);
+            }
+
             $user->setCreatedAt(new DateTime);
             $user->setUpdatedAt(new DateTime);
 
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
 

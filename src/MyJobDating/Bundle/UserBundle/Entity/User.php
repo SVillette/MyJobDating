@@ -12,10 +12,6 @@ class User implements UserInterface, Serializable
 {
     use ResourceTrait, TimestampableTrait, ToggleableTrait, DeletableTrait;
 
-    public const ROLE_CANDIDATE = 1;
-    public const ROLE_RECRUITER = 2;
-    public const ROLE_ADMIN = 3;
-
     /**
      * @var string
      */
@@ -45,6 +41,16 @@ class User implements UserInterface, Serializable
      * @var int
      */
     private $role;
+
+    /**
+     * @var CandidateInterface|null
+     */
+    private $candidate;
+
+    /**
+     * @var RecruiterInterface|null
+     */
+    private $recruiter;
 
     /**
      * Returns the username used to authenticate the user.
@@ -167,8 +173,6 @@ class User implements UserInterface, Serializable
                 return array('ROLE_CANDIDATE');
             case self::ROLE_RECRUITER:
                 return array('ROLE_RECRUITER');
-            case self::ROLE_ADMIN:
-                return array('ROLE_ADMIN');
             default:
                 return array();
         }
@@ -214,5 +218,37 @@ class User implements UserInterface, Serializable
             $this->email,
             $this->password
             ) = unserialize($serialized);
+    }
+
+    /**
+     * @return CandidateInterface|null
+     */
+    public function getCandidate(): ?CandidateInterface
+    {
+        return $this->candidate;
+    }
+
+    /**
+     * @param CandidateInterface|null $candidate
+     */
+    public function setCandidate(?CandidateInterface $candidate): void
+    {
+        $this->candidate = $candidate;
+    }
+
+    /**
+     * @return RecruiterInterface|null
+     */
+    public function getRecruiter(): ?RecruiterInterface
+    {
+        return $this->recruiter;
+    }
+
+    /**
+     * @param RecruiterInterface|null $recruiter
+     */
+    public function setRecruiter(?RecruiterInterface $recruiter): void
+    {
+        $this->recruiter = $recruiter;
     }
 }

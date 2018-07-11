@@ -1,20 +1,25 @@
-MyJobDating\Bundle\SkillBundle\Entity\Skill:
+MyJobDating\Bundle\AdminBundle\Entity\Admin:
     type: entity
-    table: skill
+    table: admin
     id:
         id:
             type: integer
             id: true
             generator:
                 strategy: AUTO
-
     fields:
-        name:
+        email:
             type: string
-            length: 30
-            nullable: false
+            length: 64
             unique: true
-
+        password:
+            type: string
+            length: 64
+        enabled:
+            type: boolean
+            nullable: false
+            options:
+                default: false
         createdAt:
             type: datetime
             column: created_at
@@ -22,7 +27,6 @@ MyJobDating\Bundle\SkillBundle\Entity\Skill:
             gedmo:
                 timestampable:
                     on: create
-
         updatedAt:
             type: datetime
             column: updated_at
@@ -30,7 +34,16 @@ MyJobDating\Bundle\SkillBundle\Entity\Skill:
             gedmo:
                 timestampable:
                     on: update
-
+        deletedAt:
+            type: datetime
+            column: deleted_at
+            nullable: true
     properties:
-        name:
+        email:
             - NotBlank: ~
+            - Email: ~
+        plainPassword:
+            - NotBlank: ~
+            - Length:
+                max: 4096
+    lifecycleCallbacks: {  }

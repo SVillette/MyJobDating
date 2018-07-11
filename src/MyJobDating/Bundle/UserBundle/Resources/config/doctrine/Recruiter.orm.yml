@@ -1,0 +1,16 @@
+MyJobDating\Bundle\UserBundle\Entity\Recruiter:
+    type: entity
+    table: recruiter
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        company:
+            targetEntity: MyJobDating\Bundle\UserBundle\Entity\Company
+            joinColumn:
+                name: company_id
+                referencedColumnName: id
+                onDelete: CASCADE

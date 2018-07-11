@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+Ajouter
+<div class="col-md-12">
+  <div class="col-md-4">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for mySkill in mySkills %}
+        <tr>
+          <td>{{ mySkill.name }}</td>
+          <td>{{ mySkill.level }}</td>
+        </tr>
+        {% endfor %}
+  </tbody>
+</table>
+  </div>
+  <div class="col-md-4">
+    {% for skill in skills %}
+        {{ skill.name }}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

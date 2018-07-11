@@ -1,3 +1,11 @@
 myjobdating_admin_homepage:
     path:     /
-    defaults: { _controller: AdminBundle:Home:index }
+    defaults:
+        _controller: MyJobDatingAdminBundle:Home:index
+
+myjobdating_admin_skills:
+    resource: "@MyJobDatingAdminBundle/Resources/config/routing/skills.yml"
+    prefix: /skills
+
+myjobdating_admin_authentication:
+    resource: "@MyJobDatingAdminBundle/Resources/config/routing/authentication.yml"

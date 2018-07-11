@@ -15,6 +15,9 @@ interface UserInterface extends
     TimestampableInterface,
     DeletableInterface
 {
+    public const ROLE_CANDIDATE = 1;
+    public const ROLE_RECRUITER = 2;
+
     /**
      * @return null|string
      */
@@ -56,6 +59,11 @@ interface UserInterface extends
     public function setPlainPassword(?string $plainPassword): void;
 
     /**
+     * @param null|string $password
+     */
+    public function setPassword(?string $password): void;
+
+    /**
      * @return int
      */
     public function getRole(): int;
@@ -64,4 +72,24 @@ interface UserInterface extends
      * @param int $role
      */
     public function setRole(int $role): void;
+
+    /**
+     * @return CandidateInterface|null
+     */
+    public function getCandidate(): ?CandidateInterface;
+
+    /**
+     * @param CandidateInterface|null $candidate
+     */
+    public function setCandidate(?CandidateInterface $candidate): void;
+
+    /**
+     * @return RecruiterInterface|null
+     */
+    public function getRecruiter(): ?RecruiterInterface;
+
+    /**
+     * @param RecruiterInterface|null $recruiter
+     */
+    public function setRecruiter(?RecruiterInterface $recruiter): void;
 }

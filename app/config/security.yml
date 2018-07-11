@@ -3,6 +3,8 @@ security:
     encoders:
         MyJobDating\Bundle\UserBundle\Entity\User:
             algorithm: bcrypt
+        MyJobDating\Bundle\AdminBundle\Entity\Admin:
+            algorithm: bcrypt
 
     role_hierarchy:
         ROLE_CANDIDATE: ~
@@ -14,15 +16,37 @@ security:
             entity:
                 class: MyJobDatingUserBundle:User
                 property: email
+        myjobdating_admin_users_provider:
+            entity:
+                class: MyJobDatingAdminBundle:Admin
+                property: email
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
+        admin:
+            pattern: ^/admin
+            provider: myjobdating_admin_users_provider
+            context: admin
+            anonymous: ~
+            form_login:
+                csrf_token_generator: security.csrf.token_manager
+                default_target_path: myjobdating_admin_homepage
+                login_path: myjobdating_admin_authentication_login
+                check_path: myjobdating_admin_authentication_login
+            remember_me:
+                secret: '%kernel.secret%_ADMIN'
+                lifetime: 604800
+                path: /admin/
+            logout:
+                success_handler: myjobdating.handler.logout_success_handler
+                path: /admin/logout
+                target: /admin/
         main:
             pattern: ^/
             http_basic: ~
+            context: app
             provider: myjobdating_basic_users_provider
             logout_on_user_change: true
             anonymous: ~
@@ -42,6 +66,7 @@ security:
                 target: /
 
     access_control:
+        - { path: ^/admin/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }

@@ -1,0 +1,22 @@
+MyJobDating\Bundle\UserBundle\Entity\Candidate:
+    type: entity
+    table: candidate
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    manyToMany:
+        skills:
+            targetEntity: MyJobDating\Bundle\SkillBundle\Entity\Skill
+            joinTable:
+                name: user_skill
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+
+                inverseJoinColumns:
+                    skill_id:
+                        referencedColumnName: id
