@@ -50,8 +50,17 @@ myjobdating:
         users: Utilisateurs
         users_count: '{0, 1} utilisateur | [1, Inf[ utilisateurs'
         you_have_been_logout: Vous avez été déconnecté
-        skill: Compétences
+        skills: Compétences
+        skill: Compétence
 
     tab:
         add: Ajouter
         edit: Editer
+
+    message:
+        success:
+            added: "%resource% avec le nom %name% a été ajouté avec l'ID %id%."
+            deleted: "%resource% \"%name%\" a été supprimé(e)."
+
+        error:
+            unknown: "%property% de %resource% inconnu."
