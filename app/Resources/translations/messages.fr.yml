@@ -21,7 +21,7 @@ myjobdating:
         backoffice: Backoffice
         candidate: Candidat
         candidate_space: Espace candidat
-        candidates_count: "{0, 1} candidat | [, Inf[ candidats"
+        candidates_count: "{0, 1} candidat | [1, Inf[ candidats"
         connect: Se connecter
         connect_as_admin: Se connecter en administrateur
         connect_to_app: Connexion à l'application
