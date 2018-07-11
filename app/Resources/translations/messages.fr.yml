@@ -15,10 +15,12 @@ myjobdating:
             type: Type de compte
     ui:
         actions: Actions
+        admin_panel: Panneau d'administration
         already_an_account: Vous avez déjà un compte ?
         backoffice: Backoffice
         candidate: Candidat
         candidate_space: Espace candidat
+        candidates_count: "{0, 1} candidat | [, Inf[ candidats"
         connect: Se connecter
         connect_as_admin: Se connecter en administrateur
         connect_to_app: Connexion à l'application
@@ -26,12 +28,18 @@ myjobdating:
         home: Accueil
         login_page: Page de connexion
         logout: Se déconnecter
+        manage_resource: 'Gérer les %resource%'
         my_account: Mon compte
         not_register_yet: Pas encore inscrit ?
+        offers: Offres
+        offers_count: "{0, 1} offre d'emploi | [1, Inf[ offres d'emploi"
         recruiter: Recruteur
         recruiter_space: Espace recruteur
+        recuiters_cout: "{0, 1} recruteur | [1, Inf[ recruteurs"
         register: S'enregistrer
         sign_up: Créer un compte
+        users: Utilisateurs
+        users_count: '{0, 1} utilisateur | [1, Inf[ utilisateurs'
         you_have_been_logout: Vous avez été déconnecté
         skill: Compétences
 
