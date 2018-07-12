@@ -5,5 +5,25 @@
 {% endblock %}
 
 {% block body %}
-    <h2>{{ candidate. }}</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col align-self-left"></div>
+                <div class="col align-self-center">
+                    <h2 class="card-title text-center">{{ candidate.user.firstName ~ ' ' ~ candidate.user.lastName }}</h2>
+                </div>
+                <div class="col align-self-right text-center">
+                    <a class="btn btn-md btn-success" href="{{ path('myjobdating_candidate_profile_update', {'id': candidate.id}) }}">{{ 'myjobdating.ui.update_my_profile'|trans }}</a>
+                </div>
+            </div>
+            <hr>
+            <p>{{ candidate.description }}</p>
+            <span><strong>{{ 'myjobdating.ui.skills'|trans }} : </strong></span>
+            <ul>
+                {% for skill in candidate.skills %}
+                    <li>{{ skill.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}

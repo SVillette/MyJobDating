@@ -14,6 +14,11 @@ MyJobDating\Bundle\UserBundle\Entity\Candidate:
             length: 255
             nullable: true
 
+    oneToOne:
+        user:
+            targetEntity: MyJobDating\Bundle\UserBundle\Entity\User
+            mappedBy: candidate
+
     manyToMany:
         skills:
             targetEntity: MyJobDating\Bundle\SkillBundle\Entity\Skill

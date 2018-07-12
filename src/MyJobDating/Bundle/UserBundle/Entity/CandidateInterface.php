@@ -2,6 +2,7 @@
 
 namespace MyJobDating\Bundle\UserBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use MyJobDating\Bundle\CoreBundle\Entity\ResourceInterface;
 use MyJobDating\Bundle\SkillBundle\Entity\Skill;
 
@@ -19,12 +20,22 @@ interface CandidateInterface extends ResourceInterface
     public function setDescription(?string $description): void;
 
     /**
-     * @return null|Skill
+     * @return Skill[]|Collection
      */
-    public function getSkills(): ?Skill;
+    public function getSkills(): ?Collection;
 
     /**
-     * @param null|Skill $skills
+     * @param Collection|null $skills
      */
-    public function setSkills(?Skill $skills): void;
+    public function setSkills(?Collection $skills): void;
+
+    /**
+     * @return User|null
+     */
+    public function getUser(): ?User;
+
+    /**
+     * @param User|null $user
+     */
+    public function setUser(?User $user): void;
 }

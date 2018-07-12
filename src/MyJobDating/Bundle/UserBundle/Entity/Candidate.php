@@ -2,6 +2,7 @@
 
 namespace MyJobDating\Bundle\UserBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use MyJobDating\Bundle\CoreBundle\Entity\ResourceTrait;
 use MyJobDating\Bundle\SkillBundle\Entity\Skill;
 
@@ -15,9 +16,14 @@ class Candidate implements CandidateInterface
     private $description;
 
     /**
-     * @var Skill
+     * @var Skill[]|Collection
      */
     private $skills;
+
+    /**
+     * @var User
+     */
+    private $user;
 
 
     /**
@@ -37,20 +43,34 @@ class Candidate implements CandidateInterface
     }
 
     /**
-     * @return Skill
+     * @return Skill[]|Collection
      */
-    public function getSkills(): ?Skill
+    public function getSkills(): Collection
     {
-
         return $this->skills;
     }
 
     /**
-     * @param null|Skill $skills
+     * @param Collection|null $skills
      */
-    public function setSkills(?Skill $skills): void
+    public function setSkills(?Collection $skills): void
     {
-
         $this->skills = $skills;
+    }
+
+    /**
+     * @return User|null
+     */
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User|null $user
+     */
+    public function setUser(?User $user): void
+    {
+        $this->user = $user;
     }
 }

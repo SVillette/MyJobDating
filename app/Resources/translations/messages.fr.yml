@@ -57,6 +57,7 @@ myjobdating:
         sign_up: Créer un compte
         skill_name: Nom de la compétence
         update: Modifier
+        update_my_profile: Modifier mon profil
         users: Utilisateurs
         users_count: '{0, 1} utilisateur | [1, Inf[ utilisateurs'
         value: Valeur

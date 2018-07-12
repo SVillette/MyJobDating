@@ -32,6 +32,20 @@ class CandidateController extends Controller
 
     public function updateAction(Request $request, int $id): Response
     {
+        $translator = $this->get('translator');
 
+        $candidateRepository = $this->getDoctrine()->getRepository(Candidate::class);
+        $candidate = $candidateRepository->find($id);
+
+        if (null === $candidate) {
+            $this->get('session')->getFlashBag()->add('error', $translator->trans('myjobdating.message.error.not_found', array(
+                    '%resource%' => $translator->trans('myjobdating.ui.the_user')
+                )
+            ));
+
+            return $this->redirectToRoute('myjobdating_core_homepage');
+        }
+
+        
     }
 }
