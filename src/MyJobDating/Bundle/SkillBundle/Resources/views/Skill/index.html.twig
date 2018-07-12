@@ -1,26 +1,31 @@
-{% extends 'base.html.twig' %}
+{% extends 'layouts/admin/base.html.twig' %}
 
 {% block body %}
     <div class="card mt-5">
         <div class="card-header">
-            <h1>Compétences</h1>
+            <h1>{{ 'myjobdating.ui.skills'|trans }}</h1>
         </div>
 
         <div class="card-body">
             <form>
-                <p>
-                    Rechercher une compétence
-                    <input type="text" name="name" placeholder="Nom ou ID de la compétence" />
-                    <input type="submit" class="btn btn-primary" value="Rechercher"/>
-                    <input type="hidden" name="_method" value="get"/>
-                </p>
+                <div class="row">
+                    <div class="col-md-2">
+                        {{ 'myjobdating.ui.search_a_skill'|trans }}
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" name="name" class="form-control" placeholder="{{ 'myjobdating.ui.skill_name'|trans }}" />
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-primary" value="{{ 'myjobdating.ui.search'|trans }}"/>
+                    </div>
+                </div>
             </form>
 
             <table class="table table-striped">
                 <tr>
                     <th>ID</th>
-                    <th>Nom</th>
-                    <th>Action</th>
+                    <th>{{ 'myjobdating.ui.name'|trans }}</th>
+                    <th>{{ 'myjobdating.ui.actions'|trans }}</th>
                 </tr>
 
                 {% if foundSkills is defined %}
@@ -36,15 +41,18 @@
                         </td>
 
                         <td>
-                            <input form="form_{{ skill.id }}" type="text" name="name" placeholder="Nom de la compétence" value="{{ skill.name }}"/>
+                            <input form="form_{{ skill.id }}" class="form-control" type="text" name="name" placeholder="{{ 'myjobdating.ui.skill_name'|trans }}" value="{{ skill.name }}"/>
                         </td>
 
                         <td>
                             <form id="form_{{ skill.id }}">
                                 <input type="hidden" name="id" value="{{ skill.id }}"/>
+                                <button type="submit" name="_method" value="put" class="btn btn-primary">{{ 'myjobdating.ui.rename'|trans }}</button>
+                            </form>
 
-                                <button type="submit" name="_method" value="put" class="btn btn-primary">Renommer</button>
-                                <button type="submit" name="_method" value="delete" class="btn btn-danger">Supprimer</button>
+                            <form>
+                                <input type="hidden" name="id" value="{{ skill.id }}"/>
+                                <button type="submit" name="_method" value="delete" class="btn btn-danger">{{ 'myjobdating.ui.delete'|trans }}</button>
                             </form>
                         </td>
                     </tr>
@@ -54,12 +62,12 @@
                     <td></td>
 
                     <td>
-                        <input form="add_skill" name="name" type="text" placeholder="Nom de la compétence"/>
+                        <input form="add_skill" class="form-control" name="name" type="text" placeholder="Nom de la compétence"/>
                     </td>
 
                     <td>
                         <form id="add_skill">
-                            <button type="submit" name="_method" value="post" class="btn btn-primary">Ajouter</button>
+                            <button type="submit" name="_method" value="post" class="btn btn-primary">{{ 'myjobdating.ui.add'|trans }}</button>
                         </form>
                     </td>
                 </tr>

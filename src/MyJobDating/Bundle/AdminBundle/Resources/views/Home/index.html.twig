@@ -1,1 +1,54 @@
-Hello World!
+{% extends 'layouts/admin/base.html.twig' %}
+
+{% block title %}
+    {{ 'myjobdating.ui.backoffice'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-body text-center">
+            <h1>{{ 'myjobdating.ui.admin_panel'|trans }}</h1>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="card-title">{{ users|length }}</h2>
+                     <p class="card-text">{{ 'myjobdating.ui.users_count'|transchoice(users|length)|upper }}</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a href="#">{{ 'myjobdating.ui.manage_resource'|trans({'%resource%': 'myjobdating.ui.users'|trans}) }}</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="card-title">{{ recruiters|length }}</h2>
+                    <p class="card-text">{{ 'myjobdating.ui.recuiters_cout'|transchoice(recruiters|length)|upper }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="card-title">{{ candidates|length }}</h2>
+                    <p class="card-text">{{ 'myjobdating.ui.candidates_count'|transchoice(candidates|length)|upper }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="card-title">{{ jobOffers|length }}</h2>
+                    <p class="card-text">{{ 'myjobdating.ui.offers_count'|transchoice(jobOffers|length)|upper }}</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a href="#">{{ 'myjobdating.ui.manage_resource'|trans({'%resource%': 'myjobdating.ui.offers'|trans}) }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

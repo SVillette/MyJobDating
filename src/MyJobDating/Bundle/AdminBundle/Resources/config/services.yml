@@ -1,4 +1,8 @@
 services:
     MyJobDating\Bundle\AdminBundle\Controller\AuthenticationController:
-        arguments: ['@security.authentication_utils', '@security.password_encoder']
-        public: true
+            arguments: ['@security.authentication_utils', '@security.password_encoder']
+            public: true
+
+    MyJobDating\Bundle\AdminBundle\Controller\SkillController:
+            arguments: ['@translator.default']
+            public: true

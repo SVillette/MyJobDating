@@ -39,6 +39,10 @@ security:
                 secret: '%kernel.secret%_ADMIN'
                 lifetime: 604800
                 path: /admin/
+            logout:
+                success_handler: myjobdating.handler.logout_success_handler
+                path: /admin/logout
+                target: /admin/
         main:
             pattern: ^/
             http_basic: ~

@@ -24,9 +24,10 @@
                     {{ form_widget(form.lastName, { 'attr': {'class': 'form-control', 'placeholder': 'myjobdating.form.account.last_name'|trans} }) }}
                 </div>
             </div>
-            {{ form_row(form.email) }}
-            {{ form_row(form.plainPassword.first) }}
-            {{ form_row(form.plainPassword.second) }}
+            {{ form_row(form.company, { 'attr': {'placeholder': 'myjobdating.form.account.company'} }) }}
+            {{ form_row(form.email, { 'attr': {'placeholder': 'myjobdating.form.account.email'} }) }}
+            {{ form_row(form.plainPassword.first, { 'attr': {'placeholder': 'myjobdating.form.account.password'} }) }}
+            {{ form_row(form.plainPassword.second, { 'attr': {'placeholder': 'myjobdating.form.account.password_confirmation'} }) }}
         </div>
         <div class="card-footer">
             <div class="row">
