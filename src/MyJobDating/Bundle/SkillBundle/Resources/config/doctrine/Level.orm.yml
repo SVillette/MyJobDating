@@ -1,6 +1,7 @@
 MyJobDating\Bundle\SkillBundle\Entity\Level:
     type: entity
     table: level
+    repositoryClass: MyJobDating\Bundle\SkillBundle\Repository\LevelRepository
     id:
         id:
             type: integer
