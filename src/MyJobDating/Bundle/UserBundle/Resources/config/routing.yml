@@ -1,2 +1,6 @@
 myjobdating_user_authentication:
     resource: "@MyJobDatingUserBundle/Resources/config/routing/authentication.yml"
+
+myjobdating_candidate_profile:
+    prefix: /candidate
+    resource: "@MyJobDatingUserBundle/Resources/config/routing/candidate_profile.yml"

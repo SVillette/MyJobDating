@@ -8,6 +8,12 @@ MyJobDating\Bundle\UserBundle\Entity\Candidate:
             generator:
                 strategy: AUTO
 
+    fields:
+        description:
+            type: string
+            length: 255
+            nullable: true
+
     manyToMany:
         skills:
             targetEntity: MyJobDating\Bundle\SkillBundle\Entity\Skill

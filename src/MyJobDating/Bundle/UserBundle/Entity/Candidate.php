@@ -8,25 +8,49 @@ use MyJobDating\Bundle\SkillBundle\Entity\Skill;
 class Candidate implements CandidateInterface
 {
     use ResourceTrait;
+
     /**
-    * @var Skill
-    */
+     * @var string|null
+     */
+    private $description;
+
+    /**
+     * @var Skill
+     */
     private $skills;
 
 
-      /**
-       * @return Skill
-       */
-      public function getSkills(){
+    /**
+     * @return null|string
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
 
-            return $this->skills;
-      }
+    /**
+     * @param null|string $description
+     */
+    public function setDescription(?string $description): void
+    {
+        $this->description = $description;
+    }
 
-      /**
-       * @param Skill $skills
-       */
-      public function setSkills(Skill $skills): void{
-        
-            $this->skills = $skills;
-      }
+    /**
+     * @return Skill
+     */
+    public function getSkills(): ?Skill
+    {
+
+        return $this->skills;
+    }
+
+    /**
+     * @param null|Skill $skills
+     */
+    public function setSkills(?Skill $skills): void
+    {
+
+        $this->skills = $skills;
+    }
 }

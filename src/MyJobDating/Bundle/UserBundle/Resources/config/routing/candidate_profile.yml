@@ -1,0 +1,13 @@
+myjobdating_candidate_profile_show:
+    path: /{id}/show
+    defaults:
+        _controller: MyJobDatingUserBundle:Candidate:show
+    requirements:
+        id: '\d+'
+
+myjobdating_candidate_profile_update:
+    path: /{id}/update
+    defaults:
+        _controller: MyJobDatingUserBundle:Candidate:update
+    requirements:
+        id: '\d+'

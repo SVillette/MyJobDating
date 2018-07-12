@@ -8,14 +8,23 @@ use MyJobDating\Bundle\SkillBundle\Entity\Skill;
 interface CandidateInterface extends ResourceInterface
 {
 
+    /**
+     * @return null|string
+     */
+    public function getDescription(): ?string;
 
-  /**
-   * @return Skill
-   */
-  public function getSkills();
+    /**
+     * @param null|string $description
+     */
+    public function setDescription(?string $description): void;
 
-  /**
-   * @param Skill $skills
-   */
-  public function setSkills(Skill $skills): void;
+    /**
+     * @return null|Skill
+     */
+    public function getSkills(): ?Skill;
+
+    /**
+     * @param null|Skill $skills
+     */
+    public function setSkills(?Skill $skills): void;
 }

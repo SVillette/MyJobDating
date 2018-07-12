@@ -22,8 +22,10 @@ myjobdating:
         back: Retour
         backoffice: Backoffice
         candidate: Candidat
+        candidate_profile: Profil du candidat
         candidate_space: Espace candidat
         candidates_count: "{0, 1} candidat | [1, Inf[ candidats"
+        company_profile: Profil de l'entreprise
         connect: Se connecter
         connect_as_admin: Se connecter en administrateur
         connect_to_app: Connexion à l'application
@@ -49,6 +51,7 @@ myjobdating:
         recuiters_cout: "{0, 1} recruteur | [1, Inf[ recruteurs"
         rename: Renommer
         register: S'enregistrer
+        see_my_profile: Voir mon profil
         search_a_skill: Rechercher une compétence
         search: Rechercher
         sign_up: Créer un compte
@@ -60,6 +63,7 @@ myjobdating:
         you_have_been_logout: Vous avez été déconnecté
         skills: Compétences
         skill: Compétence
+        the_user: L'utilisateur
 
     tab:
         add: Ajouter
@@ -79,3 +83,4 @@ myjobdating:
         error:
             unknown: "%property% de %resource% inconnu."
             missing: "%property% de %resource% manquant."
+            not_found: "%resource% n'a pas été trouvé"
