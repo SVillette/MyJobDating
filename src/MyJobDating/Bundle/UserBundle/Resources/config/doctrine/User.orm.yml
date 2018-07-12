@@ -53,7 +53,17 @@ MyJobDating\Bundle\UserBundle\Entity\User:
             column: deleted_at
             nullable: true
 
-
+    oneToOne:
+         candidate:
+             targetEntity: MyJobDating\Bundle\UserBundle\Entity\Candidate
+             joinColumn:
+                 name: candidate_id
+                 referencedColumnName: id
+         recruiter:
+             targetEntity: MyJobDating\Bundle\UserBundle\Entity\Recruiter
+             joinColumn:
+                 name: recruiter_id
+                 referencedColumnName: id
 
     properties:
         username:
