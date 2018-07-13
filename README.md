@@ -27,9 +27,20 @@ Installation:
 - Launch the symfony server :
 
     `$ php bin/console server:run`
+    
+- Install [yarn][2]
+
+- Install frontend dependencies :
+    
+    `$ yarn install`
+    
+- Run the frontend builder :
+
+    `$ yarn PREFERED_ENV`
 
 **Note**: `PREFERRED_ENV` constant might be either `dev` or `prod`
 
 
 
 [1]:  https://getcomposer.org
+[2]:  https://yarnpkg.com/lang/fr/
