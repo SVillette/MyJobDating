@@ -25,7 +25,8 @@ let config = {
         ],
         plugins: [
             './app/Resources/assets/js/check-integrity.js',
-            './app/Resources/assets/js/user-register.js'
+            './app/Resources/assets/js/user-register.js',
+            './app/Resources/assets/js/offers-adding.js'
         ],
         vendor: [
             'jquery',

@@ -14,6 +14,11 @@ class Recruiter implements RecruiterInterface
    private $company;
 
     /**
+     * @var array
+     */
+   private $offers;
+
+    /**
      * @return CompanyInterface|null
      */
     public function getCompany(): ?CompanyInterface
@@ -28,4 +33,22 @@ class Recruiter implements RecruiterInterface
     {
         $this->company = $company;
     }
+
+    /**
+     * @return array
+     */
+    public function getOffers(): ?array
+    {
+        return $this->offers;
+    }
+
+    /**
+     * @param array $offers
+     */
+    public function setOffers(array $offers): void
+    {
+        $this->offers = $offers;
+    }
+
+
 }
