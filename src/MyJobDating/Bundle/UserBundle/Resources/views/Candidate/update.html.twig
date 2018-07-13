@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'myjobdating.ui.update_my_profile'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <form action="{{ path('myjobdating_candidate_profile_update', {'id': candidate.id}) }}" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+
+            <div class="card-header">
+                <h4>{{ 'myjobdating.ui.update_my_profile'|trans }}</h4>
+            </div>
+            <div class="card-body">
+                <div class="row form-group">
+                    <label class="col-md-2 col-form-label" for="candidate_description">{{ 'myjobdating.ui.description'|trans }}</label>
+                    <div class="col-md-10">
+                        <textarea name="candidate[description]" id="candidate_description" class="form-control">
+                            {{ candidate.description }}
+                        </textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">{{ 'myjobdating.ui.skills'|trans }}</div>
+                    <div class="col-md-10"></div>
+                </div>
+                <div id="skill-level-content">
+                    {% for skill in candidate.skills %}
+                        <div class="row" {% if loop.first %} id="skill-level-row" {% endif %}>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <select class="custom-select" id="candidate_skills_name_{{ loop.index0 }}" name="candidate[skill][{{ loop.index0 }}][name]" title="{{ 'myjobdating.ui.skill'|trans }}">
+                                    {% for aSkill in skills %}
+                                        <option {% if aSkill.id is same as(skill.id) %} selected {% endif %} value="{{ aSkill.id }}">{{ aSkill.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="custom-select" id="candidate_skills_value_{{ loop.index0 }}" name="candidate[skill][{{ loop.index0 }}][level]" title="{{ 'myjobdating.ui.level'|trans }}">
+                                    {% for level in levels %}
+                                        <option value="{{ level.id }}">{{ level.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            {% if loop.last %}
+                                <input type="hidden" id="current_skill_count" name="current_skill_count" value="{{ loop.index0 }}">
+                                <div class="col-md-2">
+                                    <button type="button" id="add_skill_level" class="btn btn-md btn-primary">{{ 'myjobdating.ui.add'|trans }}</button>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <div class="row" id="skill-level-row">
+                            <div class="col-md-2">
+                                <input type="hidden" id="current_skill_count" name="current_skill_count" value="0">
+                            </div>
+                            <div class="col-md-4">
+                                <select class="custom-select" id="candidate_skills_name_0" name="candidate[skill][0][name]" title="{{ 'myjobdating.ui.skill'|trans }}">
+                                    {% for aSkill in skills %}
+                                        <option value="{{ aSkill.id }}">{{ aSkill.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="custom-select" id="candidate_skills_value_0" name="candidate[skill][0][level]" title="{{ 'myjobdating.ui.level'|trans }}">
+                                    {% for level in levels %}
+                                        <option value="{{ level.id }}">{{ level.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-md btn-primary">{{ 'myjobdating.ui.add'|trans }}</button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="float-right">
+                    <button class="btn btn-sm btn-primary" type="submit" name="submit" id="submit">{{ 'myjobdating.ui.update'|trans }}</button>
+                </div>
+                <a href="{{ path('myjobdating_candidate_profile_show', {'id': candidate.id}) }}" class="btn btn-sm btn-danger">{{ 'myjobdating.ui.back'|trans }}</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

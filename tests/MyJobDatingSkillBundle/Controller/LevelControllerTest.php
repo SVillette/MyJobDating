@@ -31,7 +31,8 @@ class LevelControllerTest extends WebTestCase
 
     public function add(Client $client, TranslatorInterface $translator){
 
-      $crawler = $client->request('GET', '/levels/add');
+
+      $crawler = $client->request('GET', '/admin/levels/add');
       $form = $crawler->selectButton($translator->trans('myjobdating.ui.add'))->form(array(
           'level[name]' => 'Test',
           'level[value]' => '1',

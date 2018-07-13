@@ -22,12 +22,12 @@ interface CandidateInterface extends ResourceInterface
     /**
      * @return Skill[]|Collection
      */
-    public function getSkills(): ?Collection;
+    public function getSkills(): ?Collection ;
 
     /**
-     * @param Collection|null $skills
+     * @param Collection|array $skills
      */
-    public function setSkills(?Collection $skills): void;
+    public function setSkills(?array $skills): void;
 
     /**
      * @return User|null

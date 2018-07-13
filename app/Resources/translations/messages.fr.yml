@@ -31,6 +31,7 @@ myjobdating:
         connect_to_app: Connexion à l'application
         create_new_account: Création d'un nouveau compte
         delete: Supprimer
+        description: Description
         edit: Modifier
         home: Accueil
         level: Niveau
