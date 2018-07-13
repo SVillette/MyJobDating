@@ -1,3 +1,7 @@
 offer_homepage:
-    path:     /api/offers
-    defaults: { _controller: MyJobDatingOfferBundle:Skill:index }
+    path: /user/offers
+    defaults: { _controller: MyJobDatingOfferBundle:Offer:index }
+
+offer_add:
+    path: /user/offers/add
+    defaults: { _controller: MyJobDatingOfferBundle:Offer:add }

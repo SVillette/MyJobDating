@@ -1,3 +1,4 @@
 skill_homepage:
     path:     /admin/skills
     defaults: { _controller: MyJobDatingSkillBundle:Skill:index }
+

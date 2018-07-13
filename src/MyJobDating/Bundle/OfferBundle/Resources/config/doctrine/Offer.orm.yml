@@ -46,7 +46,7 @@ MyJobDating\Bundle\OfferBundle\Entity\Offer:
 
     manyToOne:
         recruiter:
-            targetEntity: MyJobDating\Bundle\UserBundle\Entity\User
+            targetEntity: MyJobDating\Bundle\UserBundle\Entity\Recruiter
             inversedBy: offers
             joinColumn:
                 name: recruiter_id

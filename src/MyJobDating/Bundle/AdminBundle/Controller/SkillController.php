@@ -13,12 +13,6 @@ class SkillController extends Controller
 {
     private $translator;
 
-    public function __construct(TranslatorInterface $translator)
-    {
-        $this->translator = $translator;
-    }
-
-
     /**
      * @param string|null $skillName
      * @return array
@@ -33,13 +27,18 @@ class SkillController extends Controller
             ->getResult();
     }
 
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     public function indexAction(Request $request): Response
     {
         $myQuery = $request->query;
         $myMethod = $myQuery->get("_method");
         $myMessage = [];
 
-        if ( $myMethod ) {
+        if ($myMethod) {
             switch ($myMethod) {
                 case "post": $myMessage = $this->create($myQuery); break;
                 case "put": $myMessage = $this->update($myQuery); break;

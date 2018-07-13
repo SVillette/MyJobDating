@@ -1,1 +1,34 @@
-Hello World!
+{% extends 'layouts/admin/base.html.twig' %}
+
+{% block title %}
+    {{ 'myjobdating.ui.offers'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-body text-center">
+            <h1>{{ 'myjobdating.ui.offers'|trans }}</h1>
+        </div>
+    </div>
+
+    <ul class="list-group mt-5 w-100">
+        <li class="list-group-item">
+            <a href="offers/add">
+            <span class="btn btn-primary w-100">
+                {{ 'myjobdating.ui.create_new_offer'|trans }}
+            </span>
+            </a>
+        </li>
+
+        {% for offer in offers %}
+            <li class="list-group-item d-flex align-items-center">
+                <span class="flex-grow-1">{{ 'myjobdating.ui.offer_name'|trans }}</span>
+
+                <span class="btn btn-primary ml-2">{{ 'myjobdating.ui.edit'|trans }}</span>
+                <span class="btn btn-danger ml-2">{{ 'myjobdating.ui.delete'|trans }}</span>
+            </li>
+        {% else %}
+            <li class="list-group-item text-center">{{ 'myjobdating.ui.no_offer'|trans }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
